@@ -1,0 +1,51 @@
+<Material MtlFlags="524544">
+ <SubMaterials>
+  <Material Name="lambert1" MtlFlags="524416" Shader="Illum" GenMask="100000000" StringGenMask="%TESSELLATION" SurfaceType="mat_fabric" MatTemplate="" Diffuse="0.5,0.5,0.5" Specular="2.6306107,1.8549833,1.3169662" Emissive="0,0,0" Shininess="77" Opacity="1">
+   <Textures>
+    <Texture Map="Diffuse" File="textures/eigene objekte/buildings/concrete02_dff.tif"/>
+    <Texture Map="Bumpmap" File="textures/eigene objekte/buildings/concrete02_nrm.tif"/>
+   </Textures>
+   <PublicParams FresnelPower="4" GlossFromDiffuseContrast="1" FresnelScale="1" GlossFromDiffuseOffset="0" FresnelBias="1" GlossFromDiffuseAmount="0" GlossFromDiffuseBrightness="0.333" IndirectColor="0.25,0.25,0.25"/>
+  </Material>
+  <Material Name="Fenster" MtlFlags="524416" Shader="Illum" GenMask="100012080" StringGenMask="%DETAIL_BUMP_MAPPING%DETAIL_TEXTURE_IS_SET%ENVIRONMENT_MAP%TESSELLATION" SurfaceType="mat_glass_unbreakable" MatTemplate="" Diffuse="0.11926401,0.11926401,0.11926401" Specular="0.078175068,0.078175068,0.078175068" Emissive="0,0,0" Shininess="200" Opacity="1">
+   <Textures>
+    <Texture Map="Diffuse" File="textures/crytek.dds"/>
+    <Texture Map="Bumpmap" File="textures/eigene objekte/materials/glass normalmap.dds" TexType="4">
+     <TexMod TileU="90" TileV="90"/>
+    </Texture>
+    <Texture Map="Environment" File="textures/crytek.dds" TexType="6">
+     <TexMod TexMod_TexGenType="4"/>
+    </Texture>
+    <Texture Map="Detail" File="textures/crytek.dds" Filter="4" TexType="5">
+     <TexMod TexMod_TexGenType="5"/>
+    </Texture>
+   </Textures>
+   <PublicParams FresnelPower="4" GlossFromDiffuseContrast="1" DetailBumpTillingU="100" FresnelScale="1" GlossFromDiffuseOffset="0" DetailDiffuseScale="0" FresnelBias="1" GlossFromDiffuseAmount="0" DetailBumpScale="10" GlossFromDiffuseBrightness="0.333" DetailGlossScale="0" IndirectColor="0.25,0.25,0.25"/>
+  </Material>
+  <Material Name="Tuer" MtlFlags="524416" Shader="Illum" GenMask="100000000" StringGenMask="%TESSELLATION" SurfaceType="mat_wood" MatTemplate="" Diffuse="0.40982577,0.38891026,0.39408314" Specular="0.050000001,0.050000001,0.050000001" Emissive="0,0,0" Shininess="49" Opacity="1" AlphaTest="0.039999999">
+   <Textures>
+    <Texture Map="Diffuse" File="textures/eigene objekte/buildings/door02_dff.tif"/>
+    <Texture Map="Bumpmap" File="textures/eigene objekte/buildings/door02_nrm.tif"/>
+   </Textures>
+   <PublicParams FresnelPower="4" GlossFromDiffuseContrast="1" FresnelScale="1" GlossFromDiffuseOffset="0" FresnelBias="1" GlossFromDiffuseAmount="0" GlossFromDiffuseBrightness="0.333" IndirectColor="0.25,0.25,0.25"/>
+  </Material>
+  <Material Name="Wand" MtlFlags="524416" Shader="Illum" GenMask="100000000" StringGenMask="%TESSELLATION" SurfaceType="mat_concrete" MatTemplate="" Diffuse="0.56680977,0.56680977,0.56680977" Specular="0.15475209,0.15475209,0.15475209" Emissive="0,0,0" Shininess="98" Opacity="1">
+   <Textures>
+    <Texture Map="Diffuse" File="textures/eigene objekte/buildings/wall01_dff.dds"/>
+    <Texture Map="Bumpmap" File="textures/eigene objekte/buildings/wall01_nrm.dds"/>
+   </Textures>
+   <PublicParams FresnelPower="4" GlossFromDiffuseContrast="1" FresnelScale="1" GlossFromDiffuseOffset="0" FresnelBias="1" GlossFromDiffuseAmount="0" GlossFromDiffuseBrightness="0.333" IndirectColor="0.25,0.25,0.25"/>
+  </Material>
+  <Material Name="Floor" MtlFlags="524416" Shader="Illum" GenMask="100000000" StringGenMask="%TESSELLATION" SurfaceType="mat_concrete" MatTemplate="" Diffuse="1,1,1" Specular="0.32499999,0.32499999,0.32499999" Emissive="0,0,0" Shininess="77" Opacity="1">
+   <Textures>
+    <Texture Map="Diffuse" File="textures/eigene objekte/buildings/floor1.tif"/>
+    <Texture Map="Bumpmap" File="textures/eigene objekte/buildings/floor1_nrm.tif"/>
+   </Textures>
+   <PublicParams FresnelPower="4" GlossFromDiffuseContrast="1" FresnelScale="1" GlossFromDiffuseOffset="0" FresnelBias="1" GlossFromDiffuseAmount="0" GlossFromDiffuseBrightness="0.333" IndirectColor="0.25,0.25,0.25"/>
+  </Material>
+  <Material Name="proxy" MtlFlags="525440" Shader="Nodraw" GenMask="0" StringGenMask="" SurfaceType="mat_wood_RayProxy" MatTemplate="" Diffuse="0.5,0.5,0.5" Specular="0.5,0.5,0.5" Emissive="0,0,0" Shininess="10" Opacity="1">
+   <Textures />
+  </Material>
+ </SubMaterials>
+ <PublicParams FresnelPower="4" GlossFromDiffuseContrast="1" FresnelScale="1" GlossFromDiffuseOffset="0" FresnelBias="1" GlossFromDiffuseAmount="0" GlossFromDiffuseBrightness="0.333" IndirectColor="0.25,0.25,0.25"/>
+</Material>
