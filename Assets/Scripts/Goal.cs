@@ -30,13 +30,4 @@ public class Goal : MonoBehaviour {
 		audio.loop = true;
 		audio.Play ();
 	}
-
-	void OnCollisionStay(Collision collision)
-	{
-		if (collision.gameObject.tag == "Goal") {
-			Debug.Log ("Collided with goal");
-			mg.NewGoal ();
-			Destroy (gameObject);
-		}
-	}
 }

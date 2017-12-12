@@ -16,11 +16,13 @@ public class CollectGoal : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider other) {
-		Debug.Log ("Poof");
-		scoreboard.GetComponent<KeepScore> ().score ++;
-		time.AddTime (10.0f);
-		mg.NewGoal ();
-		other.gameObject.GetComponent<Goal> ().PlaySuccess ();
-		Destroy(other.gameObject, 1.0f);
+		if (other.gameObject.tag == "Goal") {
+			Debug.Log ("Poof");
+			scoreboard.GetComponent<KeepScore> ().score++;
+			time.AddTime (10.0f);
+			mg.NewGoal ();
+			other.gameObject.GetComponent<Goal> ().PlaySuccess ();
+			Destroy (other.gameObject, 1.0f);
+		}
 	}
 }

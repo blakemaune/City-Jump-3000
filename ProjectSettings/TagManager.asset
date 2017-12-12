@@ -10,6 +10,9 @@ TagManager:
   - Score
   - Car
   - Goal
+  - Weapon
+  - WeaponGoal
+  - Projectile
   layers:
   - Default
   - TransparentFX

@@ -79,6 +79,8 @@
      <Compile Include="Assets\Scripts\Scoreboard.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\TimeSlider.cs" />
+     <Compile Include="Assets\WeaponGoal.cs" />
+     <Compile Include="Assets\WeaponHolder.cs" />
      <None Include="Assets\Imported Assets\Building Set A OBJ\Textures\Please Read - Textures source.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />

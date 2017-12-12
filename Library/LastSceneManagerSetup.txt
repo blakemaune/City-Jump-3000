@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/CustomController.unity
+- path: Assets/Scenes/CustomController.unity
   isLoaded: 1
   isActive: 1

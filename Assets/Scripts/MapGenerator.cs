@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class MapGenerator : MonoBehaviour {
 	public GameObject[] blocks;
@@ -11,6 +12,7 @@ public class MapGenerator : MonoBehaviour {
 	public bool hardMode = false;
 	public GameObject mapParent;
 	public GameObject goal;
+	public GameObject weaponGoal;
 	public int goalCount;
 	public float blocSpacing;
 	public Vector3[,] corners;
@@ -29,8 +31,10 @@ public class MapGenerator : MonoBehaviour {
 		GenerateGoals ();
 		Smooth ();
 		SpawnMap ();
-		makeBorderBuildings ();
+
+		// makeBorderBuildings ();
 		makeInvisibleWalls ();
+
 		GenerateCorners ();
 		PlaceCars (carNum);
 		Cursor.visible = false;
@@ -79,7 +83,25 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	public void NewGoal(){
-		Instantiate (goal, new Vector3 (blocSpacing*Random.Range(0, height), 0, blocSpacing*Random.Range(0, width)), goal.transform.rotation);
+		Vector3 pos = new Vector3 (blocSpacing * Random.Range (0, height), 0, blocSpacing * Random.Range (0, width));
+		List<Vector3> locsList = new List<Vector3>();
+		GameObject[] goals = GameObject.FindGameObjectsWithTag ("Goal");
+		foreach (GameObject g in goals) {
+			locsList.Add (g.transform.position);
+		}
+		Vector3[] locs = locsList.ToArray();
+
+		if (locs.Contains (pos)) {
+			NewGoal ();
+			return;
+		}
+
+		Instantiate (goal, pos, goal.transform.rotation);
+	}
+
+	public void NewWeaponGoal(){
+		Vector3 pos = new Vector3 (blocSpacing * Random.Range (0, height), 0, blocSpacing * Random.Range (0, width));
+		Instantiate (weaponGoal, pos, goal.transform.rotation);
 	}
 
 	void GenerateMap(){
@@ -98,7 +120,7 @@ public class MapGenerator : MonoBehaviour {
 						valid = true;
 					}
 				}
-				Debug.Log ("[" + x + ", " + y + "] = " + index);
+				//Debug.Log ("[" + x + ", " + y + "] = " + index);
 				map [x, y] = index;
 			}
 		}
@@ -125,7 +147,7 @@ public class MapGenerator : MonoBehaviour {
 
 	private void makeInvisibleWalls(){
 		for (int i = 0; i < 4; i++) {
-			Debug.Log ("Creating wall " + i);
+			// Debug.Log ("Creating wall " + i);
 			GameObject wall = GameObject.CreatePrimitive (PrimitiveType.Plane);
 			float dimx = blocSpacing * height;
 			float dimz = blocSpacing * width;
@@ -164,7 +186,7 @@ public class MapGenerator : MonoBehaviour {
 
 		for (int x = 0; x < height; x++) {
 			for (int y = 0; y < width; y++) {
-				Debug.Log ("Corners [" + x + "," + y + "] = " + corners [x, y]);
+				// Debug.Log ("Corners [" + x + "," + y + "] = " + corners [x, y]);
 			}
 		}
 

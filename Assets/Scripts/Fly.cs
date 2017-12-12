@@ -7,6 +7,9 @@ public class Fly : MonoBehaviour {
 	public float speed;
 	public GameObject target;
 	private MapGenerator mg;
+	public AudioClip explode;
+
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -19,14 +22,36 @@ public class Fly : MonoBehaviour {
 		if (target == null) {
 			target = SelectTarget ();
 		}
-		Debug.Log ("Distance to target " + target.name + ": " + Vector3.Distance (transform.position, target.transform.position));
+		// Debug.Log ("Distance to target " + target.name + ": " + Vector3.Distance (transform.position, target.transform.position));
 		if (Vector3.Distance (transform.position, target.transform.position) > 200) {
-			Debug.Log ("Moving helicopter");
+			// Debug.Log ("Moving helicopter");
 			Move ();
 		} else {
 			Destroy (target);
 			target = SelectTarget ();
 			mg.NewGoal ();
+		}
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		Debug.Log ("Detected Collision");
+		if (collision.gameObject.tag == "Projectile") {
+			Debug.Log ("Hit with weapon!");
+			Destroy (collision.gameObject);
+
+			MapGenerator mg = GameObject.FindGameObjectWithTag ("MapSpawner").GetComponent<MapGenerator>();
+			GameObject newHeli = Instantiate(mg.helicopter);
+			Fly f = newHeli.GetComponent<Fly> ();
+			f.speed *= 1.5f * speed;
+
+			GetComponent<AudioSource> ().clip = explode;
+			GetComponent<AudioSource> ().Play ();
+
+			GetComponent<Rigidbody> ().AddExplosionForce (50f, gameObject.transform.position, 15f);
+
+			speed = 0f;
+			Destroy (gameObject, 5.0f);
 		}
 	}
 

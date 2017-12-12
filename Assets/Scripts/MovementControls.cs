@@ -91,7 +91,7 @@ public class MovementControls : MonoBehaviour {
 
 			// Test New Jump
 			if (IsGrounded ()) {
-				if (Input.GetKey (KeyCode.Space) && Input.GetKey (KeyCode.LeftShift)) {
+				if ((Input.GetKey (KeyCode.Space) && Input.GetKey (KeyCode.LeftShift)) || Input.GetMouseButton(1)) {
 					// Jump limit
 					//THIS IS WHERE CHARGE JUMP HAPPENS
 					if (jumpForce <= 5f * default_jumpForce) {
