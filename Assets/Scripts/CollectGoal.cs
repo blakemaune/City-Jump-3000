@@ -22,6 +22,9 @@ public class CollectGoal : MonoBehaviour {
 			time.AddTime (10.0f);
 			mg.NewGoal ();
 			other.gameObject.GetComponent<Goal> ().PlaySuccess ();
+
+
+
 			Destroy (other.gameObject, 1.0f);
 		}
 	}

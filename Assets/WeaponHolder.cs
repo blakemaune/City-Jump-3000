@@ -32,6 +32,7 @@ public class WeaponHolder : MonoBehaviour {
 		Destroy (weapon);
 		MapGenerator mg = GameObject.FindGameObjectWithTag ("MapSpawner").GetComponent<MapGenerator>();
 		mg.NewWeaponGoal ();
+		armed = false;
 
 		GetComponent<AudioSource> ().clip = shoot;
 		GetComponent<AudioSource> ().Play ();

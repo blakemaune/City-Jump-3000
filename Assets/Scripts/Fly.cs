@@ -41,18 +41,30 @@ public class Fly : MonoBehaviour {
 			Destroy (collision.gameObject);
 
 			MapGenerator mg = GameObject.FindGameObjectWithTag ("MapSpawner").GetComponent<MapGenerator>();
-			GameObject newHeli = Instantiate(mg.helicopter);
-			Fly f = newHeli.GetComponent<Fly> ();
-			f.speed *= 1.5f * speed;
+
 
 			GetComponent<AudioSource> ().clip = explode;
 			GetComponent<AudioSource> ().Play ();
 
 			GetComponent<Rigidbody> ().AddExplosionForce (50f, gameObject.transform.position, 15f);
+			GameObject.Find ("ScoreText").GetComponent<KeepScore> ().score += 2;
+
+			StartCoroutine (SpawnDelay ());
+
+			GameObject newHeli = Instantiate(mg.helicopter);
+			Fly f = newHeli.GetComponent<Fly> ();
+			f.speed *= 1.5f * speed;
 
 			speed = 0f;
-			Destroy (gameObject, 5.0f);
+			Destroy (gameObject, 2.5f);
 		}
+	}
+
+	IEnumerator SpawnDelay()
+	{
+		print(Time.time);
+		yield return new WaitForSeconds(10);
+		print(Time.time);
 	}
 
 	void Move(){

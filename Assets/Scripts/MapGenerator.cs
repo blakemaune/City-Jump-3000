@@ -32,7 +32,7 @@ public class MapGenerator : MonoBehaviour {
 		Smooth ();
 		SpawnMap ();
 
-		// makeBorderBuildings ();
+		makeBorderBuildings ();
 		makeInvisibleWalls ();
 
 		GenerateCorners ();
